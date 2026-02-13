@@ -73,7 +73,7 @@ root.title("Threat Actor Profiling System (OSINT)")
 root.geometry("600x500")
 root.resizable(False, False)
 
-# Title
+
 tk.Label(root, text="Threat Actor Profiling System", font=("Arial", 18, "bold")).pack(pady=10)
 
 # Input frame
@@ -97,3 +97,5 @@ text_output.pack(pady=10)
 
 # Run GUI
 root.mainloop()
+
+
