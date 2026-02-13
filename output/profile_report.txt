@@ -1,10 +1,15 @@
 Threat Actor Profiling Report
-Scan Time: 2026-02-13 15:13:17
------------------------------
-Username: Anush Deshar
-Platforms Found (2):
-Twitter: https://twitter.com/Anush Deshar
-Instagram: https://www.instagram.com/Anush Deshar
+Scan Time: 2026-02-13 19:50:02
+----------------------------------
+Username: darkcoder
+Platforms Found (7):
+GitHub: https://github.com/darkcoder
+Twitter: https://twitter.com/darkcoder
+Reddit: https://www.reddit.com/user/darkcoder
+Instagram: https://www.instagram.com/darkcoder
+Facebook: https://www.facebook.com/darkcoder
+TikTok: https://www.tiktok.com/@darkcoder
+Pinterest: https://www.pinterest.com/darkcoder
 
 Risk Level: MEDIUM RISK
-Skill Level: Unknown
+Skill Level: Advanced Threat Actor

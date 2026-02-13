@@ -1,17 +1,32 @@
-def analyze_footprint(platforms_dict, github_repos=0):
+# Manual Threat Intelligence Database
+KNOWN_ACTORS = {
+    "darkcoder": "Advanced Threat Actor",
+    "shadowx": "Advanced Threat Actor",
+    "silentwolf": "Intermediate Threat Actor",
+    "cyberghost": "Intermediate Threat Actor",
+    "novice123": "Beginner Threat Actor"
+}
+
+def analyze_footprint(platforms_dict, github_repos=0, username=""):
     count = len(platforms_dict)
-    skill = "Unknown"
 
-    # Estimate skill using GitHub repos (if available)
-    if github_repos > 10:
-        skill = "Intermediate"
-    elif github_repos > 0:
-        skill = "Beginner"
+    # Check manual database first
+    if username.lower() in KNOWN_ACTORS:
+        skill = KNOWN_ACTORS[username.lower()]
+    else:
+        if github_repos >= 50:
+            skill = "Advanced Developer"
+        elif github_repos >= 15:
+            skill = "Intermediate Developer"
+        elif github_repos > 0:
+            skill = "Beginner Developer"
+        else:
+            skill = "Unknown"
 
-    # Risk classification based on number of platforms found
-    if count >= 4:
+    # Risk calculation
+    if count >= 8:
         risk = "LOW RISK"
-    elif count >= 2:
+    elif count >= 4:
         risk = "MEDIUM RISK"
     else:
         risk = "HIGH RISK"
@@ -20,5 +35,5 @@ def analyze_footprint(platforms_dict, github_repos=0):
         "risk": risk,
         "platform_count": count,
         "skill_level": skill,
-        "platforms": platforms_dict  # Keep URLs
+        "platforms": platforms_dict
     }
