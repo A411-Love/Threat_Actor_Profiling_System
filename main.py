@@ -52,7 +52,7 @@ def analyze_username():
     text_output.insert(tk.END, f"Platforms Found ({profile['platform_count']}):\n", "subheader")
     text_output.insert(tk.END, platforms_text + "\n")
 
-
+    # Risk coloring
     if profile['risk'] == "LOW RISK":
         risk_color = "#00ff99"
     elif profile['risk'] == "MEDIUM RISK":
