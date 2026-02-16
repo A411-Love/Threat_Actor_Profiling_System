@@ -4,6 +4,7 @@ from datetime import datetime
 import webbrowser
 from osint.platform_check import check_platforms
 from osint.footprint_analysis import analyze_footprint
+#FAKE
 
 def open_link(event):
     try:
@@ -18,6 +19,10 @@ def clear_all():
 
 def analyze_username():
     username = entry_username.get().strip()
+        # Save search history
+    with open("output/search_history.txt", "a") as history_file:
+        history_file.write(f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - {username}\n")
+
     if not username:
         messagebox.showerror("Error", "Please enter a username")
         return
@@ -85,6 +90,35 @@ def analyze_username():
         f.write(f"Skill Level: {profile['skill_level']}\n")
 
 
+def show_history():
+    try:
+        with open("output/search_history.txt", "r") as history_file:
+            history_data = history_file.read()
+    except FileNotFoundError:
+        history_data = "No search history found."
+
+    history_window = tk.Toplevel(root)
+    history_window.title("Search History")
+    history_window.geometry("600x400")
+    history_window.configure(bg="#1e1e1e")
+
+    tk.Label(history_window,
+             text="Search History",
+             bg="#1e1e1e",
+             fg="#00ffff",
+             font=("Consolas", 16, "bold")).pack(pady=10)
+
+    text_history = tk.Text(history_window,
+                           height=18,
+                           width=70,
+                           font=("Consolas", 11),
+                           bg="#121212",
+                           fg="white")
+    text_history.pack(pady=10)
+
+    text_history.insert(tk.END, history_data)
+    text_history.config(state="disabled")
+
 
 root = tk.Tk()
 root.title("Threat Actor Profiling System (OSINT)")
@@ -112,9 +146,16 @@ entry_username.pack(side=tk.LEFT)
 frame_buttons = tk.Frame(root, bg="#1e1e1e")
 frame_buttons.pack(pady=10)
 
+
 tk.Button(frame_buttons, text="Analyze",
           command=analyze_username,
           bg="#00cc66", fg="black",
+          font=("Consolas", 11, "bold"),
+          width=15).pack(side=tk.LEFT, padx=15)
+
+tk.Button(frame_buttons, text="History",
+          command=show_history,
+          bg="#3399ff", fg="black",
           font=("Consolas", 11, "bold"),
           width=15).pack(side=tk.LEFT, padx=15)
 
@@ -123,6 +164,7 @@ tk.Button(frame_buttons, text="Clear",
           bg="#cc3333", fg="white",
           font=("Consolas", 11, "bold"),
           width=15).pack(side=tk.LEFT, padx=15)
+
 
 frame_output = tk.Frame(root, bg="#1e1e1e")
 frame_output.pack(pady=15)

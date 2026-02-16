@@ -1,15 +1,14 @@
 Threat Actor Profiling Report
-Scan Time: 2026-02-16 18:59:13
+Scan Time: 2026-02-16 19:16:24
 ----------------------------------
-Username: novice123
-Platforms Found (7):
-GitHub: https://github.com/novice123
-Twitter: https://twitter.com/novice123
-Reddit: https://www.reddit.com/user/novice123
-Instagram: https://www.instagram.com/novice123
-Facebook: https://www.facebook.com/novice123
-TikTok: https://www.tiktok.com/@novice123
-Pinterest: https://www.pinterest.com/novice123
+Username: silentwolf
+Platforms Found (6):
+GitHub: https://github.com/silentwolf
+Twitter: https://twitter.com/silentwolf
+Reddit: https://www.reddit.com/user/silentwolf
+Instagram: https://www.instagram.com/silentwolf
+Facebook: https://www.facebook.com/silentwolf
+Pinterest: https://www.pinterest.com/silentwolf
 
 Risk Level: MEDIUM RISK
-Skill Level: Beginner Threat Actor
+Skill Level: Intermediate Threat Actor
