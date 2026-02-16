@@ -71,7 +71,7 @@ def analyze_username():
             text_output.insert(tk.END, f"- {word}\n", "alert")
 
 
-    # Tag styling
+
     text_output.tag_config("alert", foreground="#ff0000", font=("Consolas", 14, "bold"))
     text_output.tag_config("subheader", foreground="#00ccff", font=("Consolas", 12, "bold"))
     text_output.tag_config("risk", foreground=risk_color, font=("Consolas", 12, "bold"))
@@ -86,7 +86,7 @@ def analyze_username():
         start = text_output.search("https://", end, tk.END)
     text_output.tag_bind("link", "<Button-1>", open_link)
 
-
+    # Save report
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     with open("output/profile_report.txt", "w") as f:
         f.write(f"Threat Actor Profiling Report\nScan Time: {timestamp}\n")
