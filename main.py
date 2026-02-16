@@ -86,7 +86,7 @@ def analyze_username():
         start = text_output.search("https://", end, tk.END)
     text_output.tag_bind("link", "<Button-1>", open_link)
 
-    # Save report
+
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     with open("output/profile_report.txt", "w") as f:
         f.write(f"Threat Actor Profiling Report\nScan Time: {timestamp}\n")
