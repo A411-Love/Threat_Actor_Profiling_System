@@ -1,6 +1,6 @@
 # Manual Threat Intelligence Database
 KNOWN_ACTORS = {
-    "darkcoder": "Advanced Threat Actor",
+    "raidForums": "Advanced Threat Actor",
     "shadowx": "Advanced Threat Actor",
     "silentwolf": "Intermediate Threat Actor",
     "cyberghost": "Intermediate Threat Actor",
@@ -9,10 +9,13 @@ KNOWN_ACTORS = {
 
 def analyze_footprint(platforms_dict, github_repos=0, username=""):
     count = len(platforms_dict)
+    username = username.lower()
 
-    # Check manual database first
-    if username.lower() in KNOWN_ACTORS:
-        skill = KNOWN_ACTORS[username.lower()]
+    known_detected = False  
+
+    if username in KNOWN_ACTORS:
+        skill = KNOWN_ACTORS[username]
+        known_detected = True
     else:
         if github_repos >= 50:
             skill = "Advanced Developer"
@@ -23,7 +26,6 @@ def analyze_footprint(platforms_dict, github_repos=0, username=""):
         else:
             skill = "Unknown"
 
-    # Risk calculation
     if count >= 8:
         risk = "LOW RISK"
     elif count >= 4:
@@ -35,5 +37,6 @@ def analyze_footprint(platforms_dict, github_repos=0, username=""):
         "risk": risk,
         "platform_count": count,
         "skill_level": skill,
-        "platforms": platforms_dict
+        "platforms": platforms_dict,
+        "known_actor": known_detected   
     }

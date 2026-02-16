@@ -1,15 +1,15 @@
 Threat Actor Profiling Report
-Scan Time: 2026-02-13 19:50:02
+Scan Time: 2026-02-16 18:59:13
 ----------------------------------
-Username: darkcoder
+Username: novice123
 Platforms Found (7):
-GitHub: https://github.com/darkcoder
-Twitter: https://twitter.com/darkcoder
-Reddit: https://www.reddit.com/user/darkcoder
-Instagram: https://www.instagram.com/darkcoder
-Facebook: https://www.facebook.com/darkcoder
-TikTok: https://www.tiktok.com/@darkcoder
-Pinterest: https://www.pinterest.com/darkcoder
+GitHub: https://github.com/novice123
+Twitter: https://twitter.com/novice123
+Reddit: https://www.reddit.com/user/novice123
+Instagram: https://www.instagram.com/novice123
+Facebook: https://www.facebook.com/novice123
+TikTok: https://www.tiktok.com/@novice123
+Pinterest: https://www.pinterest.com/novice123
 
 Risk Level: MEDIUM RISK
-Skill Level: Advanced Threat Actor
+Skill Level: Beginner Threat Actor

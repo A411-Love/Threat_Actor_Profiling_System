@@ -1,3 +1,96 @@
+File = footprint_analysis.py 
+# Manual Threat Intelligence Database
+KNOWN_ACTORS = {
+    "darkcoder": "Advanced Threat Actor",
+    "shadowx": "Advanced Threat Actor",
+    "silentwolf": "Intermediate Threat Actor",
+    "cyberghost": "Intermediate Threat Actor",
+    "novice123": "Beginner Threat Actor"
+}
+
+def analyze_footprint(platforms_dict, github_repos=0, username=""):
+    count = len(platforms_dict)
+
+    # Check manual database first
+    if username.lower() in KNOWN_ACTORS:
+        skill = KNOWN_ACTORS[username.lower()]
+    else:
+        if github_repos >= 50:
+            skill = "Advanced Developer"
+        elif github_repos >= 15:
+            skill = "Intermediate Developer"
+        elif github_repos > 0:
+            skill = "Beginner Developer"
+        else:
+            skill = "Unknown"
+
+    # Risk calculation
+    if count >= 8:
+        risk = "LOW RISK"
+    elif count >= 4:
+        risk = "MEDIUM RISK"
+    else:
+        risk = "HIGH RISK"
+
+    return {
+        "risk": risk,
+        "platform_count": count,
+        "skill_level": skill,
+        "platforms": platforms_dict
+    }
+
+
+file = platform_check.py
+import requests
+from bs4 import BeautifulSoup
+
+platforms = {
+    "GitHub": {"url": "https://github.com/{}", "error_text": "Not Found"},
+    "Twitter": {"url": "https://twitter.com/{}", "error_text": "Sorry, that page doesn’t exist"},
+    "Reddit": {"url": "https://www.reddit.com/user/{}", "error_text": "Sorry, nobody on Reddit"},
+    "Instagram": {"url": "https://www.instagram.com/{}", "error_text": "Sorry, this page isn’t available"},
+    "LinkedIn": {"url": "https://www.linkedin.com/in/{}", "error_text": "profile not found"},
+    "Facebook": {"url": "https://www.facebook.com/{}", "error_text": "content not available"},
+    "TikTok": {"url": "https://www.tiktok.com/@{}", "error_text": "Page not found"},
+    "Pinterest": {"url": "https://www.pinterest.com/{}", "error_text": "Page Not Found"},
+    "Medium": {"url": "https://medium.com/@{}", "error_text": "Page not found"},
+    "YouTube": {"url": "https://www.youtube.com/{}", "error_text": "Page not found"},
+    "StackOverflow": {"url": "https://stackoverflow.com/users/{}", "error_text": "Page not found"},
+    "SoundCloud": {"url": "https://soundcloud.com/{}", "error_text": "Page not found"},
+}
+
+def get_github_repos(username):
+    try:
+        url = f"https://github.com/{username}"
+        r = requests.get(url, timeout=5)
+        if r.status_code == 200:
+            soup = BeautifulSoup(r.text, "html.parser")
+            repo_tag = soup.find("span", {"class": "Counter"})
+            if repo_tag:
+                return int(repo_tag.text.strip())
+    except:
+        pass
+    return 0
+
+def check_platforms(username):
+    found = {}
+    github_repos = 0
+
+    for name, info in platforms.items():
+        url = info["url"].format(username)
+        try:
+            r = requests.get(url, timeout=5)
+            if r.status_code == 200 and info["error_text"].lower() not in r.text.lower():
+                found[name] = url
+                if name == "GitHub":
+                    github_repos = get_github_repos(username)
+        except:
+            pass
+
+    return found, github_repos
+
+
+file = main.py
 import tkinter as tk
 from tkinter import messagebox
 from datetime import datetime
@@ -26,23 +119,14 @@ def analyze_username():
     text_output.insert(tk.END, "🔎 Scanning platforms...\n")
     root.update()
 
-    # Get platform data
     platforms_found, github_repos = check_platforms(username)
-
-    # Analyze footprint
     profile = analyze_footprint(platforms_found, github_repos, username)
 
-    text_output.delete("1.0", tk.END)
-
-    # 🚨 Known Threat Actor Warning (RED)
-    if profile.get("known_actor"):
-        text_output.insert(tk.END, "⚠ KNOWN THREAT ACTOR DETECTED ⚠\n\n", "alert")
-
-    # Build platform list
     platforms_text = ""
     for name, url in profile['platforms'].items():
         platforms_text += f"{name}: {url}\n"
 
+    text_output.delete("1.0", tk.END)
     text_output.insert(tk.END, f"Username: {username}\n\n", "header")
     text_output.insert(tk.END, f"Platforms Found ({profile['platform_count']}):\n", "subheader")
     text_output.insert(tk.END, platforms_text + "\n")
@@ -59,8 +143,7 @@ def analyze_username():
     text_output.insert(tk.END, f"{profile['risk']}\n", ("risk",))
     text_output.insert(tk.END, f"Skill Level: {profile['skill_level']}\n")
 
-    # Tag styling
-    text_output.tag_config("alert", foreground="#ff0000", font=("Consolas", 14, "bold"))
+    text_output.tag_config("header", foreground="#00ffff", font=("Consolas", 14, "bold"))
     text_output.tag_config("subheader", foreground="#00ccff", font=("Consolas", 12, "bold"))
     text_output.tag_config("risk", foreground=risk_color, font=("Consolas", 12, "bold"))
 
@@ -74,7 +157,6 @@ def analyze_username():
         start = text_output.search("https://", end, tk.END)
     text_output.tag_bind("link", "<Button-1>", open_link)
 
-    # Save report
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     with open("output/profile_report.txt", "w") as f:
         f.write(f"Threat Actor Profiling Report\nScan Time: {timestamp}\n")
@@ -83,8 +165,6 @@ def analyze_username():
         f.write(f"Platforms Found ({profile['platform_count']}):\n{platforms_text}\n")
         f.write(f"Risk Level: {profile['risk']}\n")
         f.write(f"Skill Level: {profile['skill_level']}\n")
-
-
 
 root = tk.Tk()
 root.title("Threat Actor Profiling System (OSINT)")
@@ -140,3 +220,4 @@ text_output.pack()
 scrollbar.config(command=text_output.yview)
 
 root.mainloop()
+
