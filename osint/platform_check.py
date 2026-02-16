@@ -45,3 +45,4 @@ def check_platforms(username):
             pass
 
     return found, github_repos
+
