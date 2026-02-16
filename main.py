@@ -89,8 +89,7 @@ def analyze_username():
         f.write(f"Risk Level: {profile['risk']}\n")
         f.write(f"Skill Level: {profile['skill_level']}\n")
 
-#showing history button
-#
+
 def show_history():
     try:
         with open("output/search_history.txt", "r") as history_file:
