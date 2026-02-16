@@ -4,8 +4,7 @@ from datetime import datetime
 import webbrowser
 from osint.platform_check import check_platforms
 from osint.footprint_analysis import analyze_footprint
-
-#Programming
+#FAKE
 
 def open_link(event):
     try:
@@ -64,6 +63,13 @@ def analyze_username():
     text_output.insert(tk.END, "Risk Level: ", "subheader")
     text_output.insert(tk.END, f"{profile['risk']}\n", ("risk",))
     text_output.insert(tk.END, f"Skill Level: {profile['skill_level']}\n")
+    text_output.insert(tk.END, f"Threat Score: {profile['threat_score']}/100\n")
+
+    if profile["detected_keywords"]:
+        text_output.insert(tk.END, "\n⚠ Suspicious Keywords Detected:\n", "alert")
+        for word in profile["detected_keywords"]:
+            text_output.insert(tk.END, f"- {word}\n", "alert")
+
 
     # Tag styling
     text_output.tag_config("alert", foreground="#ff0000", font=("Consolas", 14, "bold"))
@@ -183,5 +189,4 @@ text_output.pack()
 scrollbar.config(command=text_output.yview)
 
 root.mainloop()
-
 
