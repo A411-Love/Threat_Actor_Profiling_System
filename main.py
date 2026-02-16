@@ -52,7 +52,7 @@ def analyze_username():
     text_output.insert(tk.END, f"Platforms Found ({profile['platform_count']}):\n", "subheader")
     text_output.insert(tk.END, platforms_text + "\n")
 
-    # Risk coloring
+
     if profile['risk'] == "LOW RISK":
         risk_color = "#00ff99"
     elif profile['risk'] == "MEDIUM RISK":
@@ -71,7 +71,7 @@ def analyze_username():
             text_output.insert(tk.END, f"- {word}\n", "alert")
 
 
-
+    # Tag styling
     text_output.tag_config("alert", foreground="#ff0000", font=("Consolas", 14, "bold"))
     text_output.tag_config("subheader", foreground="#00ccff", font=("Consolas", 12, "bold"))
     text_output.tag_config("risk", foreground=risk_color, font=("Consolas", 12, "bold"))
