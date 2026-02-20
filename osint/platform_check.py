@@ -14,6 +14,11 @@ platforms = {
     "YouTube": {"url": "https://www.youtube.com/{}", "error_text": "Page not found"},
     "StackOverflow": {"url": "https://stackoverflow.com/users/{}", "error_text": "Page not found"},
     "SoundCloud": {"url": "https://soundcloud.com/{}", "error_text": "Page not found"},
+    "HackerOne": {"url": "https://hackerone.com/{}", "error_text": "Page not found"},
+    "HackTheBox": {"url": "https://app.hackthebox.com/profile/{}", "error_text": "Page not found"},
+    "TryHackMe": {"url": "https://tryhackme.com/p/{}", "error_text": "Page not found"},
+    "Bugcrowd": {"url": "https://bugcrowd.com/{}", "error_text": "Page not found"}
+
 }
 
 def get_github_repos(username):

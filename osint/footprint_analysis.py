@@ -1,16 +1,27 @@
 # Manual Threat Intelligence Database
 KNOWN_ACTORS = {
-    "raidForums": "Advanced Threat Actor",
+    "raidforums": "Advanced Threat Actor",
+    "kevin mitnick": "Advanced Threat Actor",
+    "diogo santos coelho": "Advanced Threat Actor",
+    "gary mckinnon": "Advanced Threat Actor",
     "shadowx": "Advanced Threat Actor",
+    "evgeniy bogachev": "Advanced Threat Actor",
+    "ross william ulbricht": "Advanced Threat Actor",
     "silentwolf": "Intermediate Threat Actor",
     "cyberghost": "Intermediate Threat Actor",
     "novice123": "Beginner Threat Actor"
+
 }
+
 SUSPICIOUS_KEYWORDS = [
-    "hack", "exploit","leak","dark","root","admin","1337","anonymous","breach","crack","payload","malware","virus","worm","trojan",
-    "ransomware","spyware","keylogger","backdoor","rootkit","pwn","zero-day","blackhat","whitehat","greyhat","botnet","ddos",
-    "phishing","spoofing","injection","overflow","bruteforce","exfiltrate","dump","credentials","hash","token","session","shell","escalation",
-    "proxy","vpn","onion","darknet","hacker"
+    "hack", "exploit","leak","dark","root","admin","1337","anonymous",
+    "breach","crack","payload","malware","virus","worm","trojan",
+    "ransomware","spyware","keylogger","backdoor","rootkit","pwn",
+    "zero-day","blackhat","whitehat","greyhat","botnet","ddos",
+    "phishing","spoofing","injection","overflow","bruteforce","exfiltrate",
+    "dump","credentials","hash","token","session","shell","escalation",
+    "proxy","vpn","onion","darknet","hacker","CTF","capture the flag",
+    "kali linux","linux"
  ]
 
 

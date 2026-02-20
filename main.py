@@ -4,6 +4,7 @@ from datetime import datetime
 import webbrowser
 from osint.platform_check import check_platforms
 from osint.footprint_analysis import analyze_footprint
+
 #REAL
 
 def open_link(event):
@@ -149,6 +150,7 @@ entry_username = tk.Entry(frame_input, width=30,
                           bg="#2d2d2d", fg="white",
                           insertbackground="white")
 entry_username.pack(side=tk.LEFT)
+entry_username.bind("<Return>", lambda event: analyze_username())
 
 frame_buttons = tk.Frame(root, bg="#1e1e1e")
 frame_buttons.pack(pady=10)
@@ -189,4 +191,6 @@ text_output.pack()
 scrollbar.config(command=text_output.yview)
 
 root.mainloop()
+
+
 

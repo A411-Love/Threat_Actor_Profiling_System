@@ -1,14 +1,15 @@
 Threat Actor Profiling Report
-Scan Time: 2026-02-16 19:16:24
+Scan Time: 2026-02-19 23:17:47
 ----------------------------------
-Username: silentwolf
-Platforms Found (6):
-GitHub: https://github.com/silentwolf
-Twitter: https://twitter.com/silentwolf
-Reddit: https://www.reddit.com/user/silentwolf
-Instagram: https://www.instagram.com/silentwolf
-Facebook: https://www.facebook.com/silentwolf
-Pinterest: https://www.pinterest.com/silentwolf
+Username: kevin mitnick
+Platforms Found (7):
+Twitter: https://twitter.com/kevin mitnick
+Instagram: https://www.instagram.com/kevin mitnick
+Facebook: https://www.facebook.com/kevin mitnick
+TikTok: https://www.tiktok.com/@kevin mitnick
+Pinterest: https://www.pinterest.com/kevin mitnick
+HackTheBox: https://app.hackthebox.com/profile/kevin mitnick
+TryHackMe: https://tryhackme.com/p/kevin mitnick
 
-Risk Level: MEDIUM RISK
-Skill Level: Intermediate Threat Actor
+Risk Level: HIGH RISK
+Skill Level: Advanced Threat Actor
