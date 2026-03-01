@@ -1,15 +1,15 @@
 Threat Actor Profiling Report
-Scan Time: 2026-02-19 23:17:47
+Scan Time: 2026-02-28 20:15:55
 ----------------------------------
-Username: kevin mitnick
+Username: ross william ulbricht
 Platforms Found (7):
-Twitter: https://twitter.com/kevin mitnick
-Instagram: https://www.instagram.com/kevin mitnick
-Facebook: https://www.facebook.com/kevin mitnick
-TikTok: https://www.tiktok.com/@kevin mitnick
-Pinterest: https://www.pinterest.com/kevin mitnick
-HackTheBox: https://app.hackthebox.com/profile/kevin mitnick
-TryHackMe: https://tryhackme.com/p/kevin mitnick
+Twitter: https://twitter.com/ross william ulbricht
+Instagram: https://www.instagram.com/ross william ulbricht
+Facebook: https://www.facebook.com/ross william ulbricht
+TikTok: https://www.tiktok.com/@ross william ulbricht
+Pinterest: https://www.pinterest.com/ross william ulbricht
+HackTheBox: https://app.hackthebox.com/profile/ross william ulbricht
+TryHackMe: https://tryhackme.com/p/ross william ulbricht
 
 Risk Level: HIGH RISK
 Skill Level: Advanced Threat Actor

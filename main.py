@@ -5,7 +5,6 @@ import webbrowser
 from osint.platform_check import check_platforms
 from osint.footprint_analysis import analyze_footprint
 
-#REAL
 
 def open_link(event):
     try:
