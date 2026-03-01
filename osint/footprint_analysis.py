@@ -51,7 +51,7 @@ def analyze_footprint(platforms_dict, github_repos=0, username=""):
         else:
             skill = "Unknown"
 
-    # 🔍 Keyword Detection
+    # Keyword Detection
     for word in SUSPICIOUS_KEYWORDS:
         if word in username_lower:
             detected_keywords.append(word)

@@ -39,7 +39,7 @@ def analyze_username():
 
     text_output.delete("1.0", tk.END)
 
-    # 🚨 Known Threat Actor Warning (RED)
+    # Known Threat Actor Warning (RED)
     if profile.get("known_actor"):
         text_output.insert(tk.END, "⚠ KNOWN THREAT ACTOR DETECTED ⚠\n\n", "alert")
 
