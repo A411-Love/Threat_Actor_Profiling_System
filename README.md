@@ -1,4 +1,4 @@
-<!-- The Threat Actor Profiling System is a Python-based OSINT (Open Source Intelligence) tool designed to analyze a username across multiple online platforms and generate a structured risk assessment.
+The Threat Actor Profiling System is a Python-based OSINT (Open Source Intelligence) tool designed to analyze a username across multiple online platforms and generate a structured risk assessment.
 
 Tool created by : Anush Deshar
 
@@ -109,4 +109,3 @@ Known threat actor match
 Ethical Considerations
 
 This tool uses only publicly available information and does not bypass authentication or perform unauthorized access. It is intended for educational and academic purposes only.
--->
